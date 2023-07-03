@@ -190,11 +190,14 @@ function Comment() {
     description: "",
   });
   const [allComments, setAllComments] = useState([]);
+  
   const [editComment, setEditComment] = useState({
     id: null,
     Image: "./avatar.jpg",
     description: "",   
   });
+
+  const { userId } = useParams();
 
   useEffect(() => {
     getUsers();
@@ -204,9 +207,7 @@ function Comment() {
   // Function to get all users
   const getUsers = () => {
     axios
-      .get(`http://localhost:9000/Users/`,{
-        
-      })
+      .get(`http://localhost:9000/Users/`)
       .then((response) => {
         setUsers(response.data);
       })

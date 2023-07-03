@@ -1,0 +1,26 @@
+.footer {
+    background-color: #222020;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  @media screen and (max-height: 600px) {
+    .footer {
+      position: static;
+    }
+  }
+  

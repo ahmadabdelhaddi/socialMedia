@@ -14,9 +14,9 @@ function Post() {
   const [description, setDescription] = useState("");
   const [post_img, setpostimg] = useState("");
   const currentDate = new Date().toLocaleString();
-  // const handleImageChange = (e) => {
-  //     setimage(e.target.value);
-  // };
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
   const { userId } = useParams();
 
   //GET THE DESCRIPTION WHENE USER WRITE IT
@@ -98,7 +98,7 @@ function Post() {
           .post("http://localhost:9000/Users", {
             email: "",
             password: "",
-            name: "Unknown User",
+            name,
             Image: "./avatar.jpg",
             description,
             post_img: url,
@@ -123,7 +123,7 @@ function Post() {
           // ],
            // Add the new post to the posts array
 
-           name: "Unknown User",
+           name ,
            Image: "./avatar.jpg",
            description,
            post_img: "",
@@ -164,14 +164,27 @@ function Post() {
           <div className="newPost">
             <div className="postBox">
               <form onSubmit={handleSubmit}>
-                <input
+               
+              <input
                   style={{ padding: "10px" }}
                   className="formInput"
+                  type="text"
+                  value={name}
+                  onChange={handleName}
+                  placeHolder="Enter your Name"
+                />
+
+                <input
+                  style={{ padding: "10px" }}
+                  className="formInput description"
                   type="text"
                   value={description}
                   onChange={handleDescriptionChange}
                   placeHolder="Enter the description"
                 />
+
+
+            
 
                 <input type="file" onChange={handleFileChange} />
 
@@ -245,8 +258,8 @@ function Post() {
           </div>
         </div>
 
-        <div className="third-section">
-          <h1>Third Section</h1>
+        <div className="third-section" >
+          <h1 style={{color:"#f0f2f5"}}>....................</h1>
         </div>
       </div>
     </>

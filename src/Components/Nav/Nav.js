@@ -9,7 +9,7 @@ function Nav() {
           <div>
             <img
               width="40px"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
+              src="https://static.vecteezy.com/system/resources/previews/000/599/745/original/vector-business-corporate-s-letter-logo.jpg"
             />
           </div>
 
@@ -19,7 +19,7 @@ function Nav() {
                 <input
                   class="prompt"
                   type="text"
-                  placeholder="Search Facebook"
+                  placeholder="Search S-torybook"
                 />
                 <i class="search icon"></i>
               </div>

@@ -1,17 +1,19 @@
+/* Nav_style.css */
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   background-color: #f0f2f5;
 }
+
 header {
-
+  width: 100vw;
   background-color: #FFFFFF;
-
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
 }
 
 ul {
@@ -19,21 +21,23 @@ ul {
 }
 
 nav ul {
-    width: 645px;
-    padding: 0 10px;
+  width: 645px;
+  padding: 0 10px;
   display: flex;
   justify-content: space-around;
 }
+
 nav ul li {
 }
+
 nav ul li:hover {
-background-color: #dddddd;
+  background-color: #dddddd;
 }
 
-
-.logo{
-    width: 40px;
+.logo {
+  width: 40px;
 }
+
 .nav-leftSide {
   display: flex;
   align-items: center;
@@ -45,7 +49,6 @@ background-color: #dddddd;
 .nav-rightSide {
   display: flex;
   gap: 10px;
- 
 }
 
 .nav-rightSide div {
@@ -58,37 +61,36 @@ background-color: #dddddd;
   justify-content: center;
   align-items: center;
 }
-.nav-rightSide div  svg {
+
+.nav-rightSide div svg {
   width: 20px;
   height: 20px;
 }
 
+/* Media Queries */
 
-
-
-/* media */
-
-
-@media screen and (max-width:1070px) {
-
-  header{
+@media screen and (max-width: 1070px) {
+  header {
     padding: 10px;
   }
-  nav{
+  nav {
     display: none;
   }
-  
 }
 
-
-@media screen and (max-width:550px) {
-
+@media screen and (max-width: 550px) {
   .nav-rightSide {
     visibility: hidden;
   }
 
-  .menu-humb{
+  .menu-humb {
     visibility: visible;
     padding: 10px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  header {
+    width: 100vw;
   }
 }
