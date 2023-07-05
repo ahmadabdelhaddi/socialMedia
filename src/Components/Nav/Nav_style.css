@@ -21,13 +21,10 @@ ul {
 }
 
 nav ul {
-  width: 645px;
+  width: 660px;
   padding: 0 10px;
   display: flex;
   justify-content: space-around;
-}
-
-nav ul li {
 }
 
 nav ul li:hover {
@@ -73,6 +70,10 @@ nav ul li:hover {
   header {
     padding: 10px;
   }
+
+  nav ul {
+    width: 200px;
+  }
   nav {
     display: none;
   }
@@ -83,14 +84,18 @@ nav ul li:hover {
     visibility: hidden;
   }
 
+  header {
+    width: auto;
+  }
+
   .menu-humb {
     visibility: visible;
     padding: 10px;
   }
 }
 
-@media screen and (max-width: 550px) {
+/* @media screen and (max-width: 550px) {
   header {
     width: 100vw;
   }
-}
+} */

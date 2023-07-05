@@ -1,8 +1,8 @@
-.Big-container{
-
+.Big-container {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  /* overflow: hidden; */
 }
 .container {
   display: flex;
@@ -33,7 +33,7 @@
 .postBox {
   width: 530px;
   height: 200px;
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
 
@@ -44,16 +44,6 @@
 }
 
 .formInput {
-    height: 35px;
-    border-radius: 15px;
-    background-color: #f2f2f2;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-.description{
   height: 35px;
   border-radius: 15px;
   background-color: #f2f2f2;
@@ -62,7 +52,18 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 70vmin !important;
+}
+.description {
+  height: 35px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* width: 70vmin !important; */
+  width: 70%;
 }
 .uploadIcons {
   display: flex;
@@ -91,16 +92,16 @@
   gap: 50px;
 }
 .post {
-    width: 530px;
-    height: auto;
-    background-color: white;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 16px;
-    margin-top: 246px;
-    margin-bottom: -256px;
+  width: 530px;
+  height: auto;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 16px;
+  margin-top: 246px;
+  margin-bottom: -256px;
 }
 
 .user_name_img {
@@ -117,9 +118,9 @@
   padding: 10px 0;
 }
 
-.postDeleteButton{
-  background-color:red;
-  border:none;
+.postDeleteButton {
+  background-color: red;
+  border: none;
   font-size: "15px";
   cursor: "pointer";
   padding: "5px";
@@ -127,62 +128,55 @@
   margin-left: 183px;
 }
 
-
-.postDeleteButton:hover{
-  background-color:rgb(47, 12, 12);
-color: white;
-cursor: "pointer";
-
+.postDeleteButton:hover {
+  background-color: rgb(47, 12, 12);
+  color: white;
+  cursor: "pointer";
 }
-.flex-comment{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+.flex-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
-.commentsBox{
-    background-color: #ffffff;
-    padding: 20px;
-    width: 530px;
-    height:auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+.commentsBox {
+  background-color: #ffffff;
+  padding: 20px;
+  width: 530px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-
-.comments input{
-    background-color: #f0f2f5;
-    padding: 10px;
-height: 35px;
-border: none;
-border-radius: 32px;
-width: 454px;
+.comments input {
+  background-color: #f0f2f5;
+  padding: 10px;
+  height: 35px;
+  border: none;
+  border-radius: 32px;
+  width: 454px;
 }
 
-
-.comments label{
-    background-color: #f0f2f5;
-    padding: 10px;
-width: 480px;
-height: 35px;
-border: none;
-/* border-radius: 32px; */
+.comments label {
+  background-color: #f0f2f5;
+  padding: 10px;
+  width: 480px;
+  height: 35px;
+  border: none;
+  white-space: nowrap;
+  /* border-radius: 32px; */
 }
-.comments input:focus{
-    border: none;
+.comments input:focus {
+  border: none;
 }
-.img-comment img{
-    width: 30px;
-
+.img-comment img {
+  width: 30px;
 }
 
-
-
-
-.greather_than{
+.greather_than {
   border: none;
   width: 65px;
   height: 35px;
@@ -191,43 +185,46 @@ border: none;
   left: 445px;
 }
 
-.greather_than:hover{
-    background-color: #129cf7;
+.greather_than:hover {
+  background-color: #129cf7;
 }
 
-
 .deleteBtn {
-  background-color: #f0f2f5!important;
+  background-color: #f0f2f5 !important;
   border-radius: 22px;
-  bottom: none!important
+  bottom: none !important
   ;
 }
 .updateBtn {
-  background-color: #f0f2f5!important;
+  background-color: #f0f2f5 !important;
   border-radius: 22px;
-  bottom: none!important
+  bottom: none !important
 ;
 }
 /* media */
 
 @media screen and (max-width: 1000px) {
-  .Big-container{
+  .Big-container {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .leftMenu {
-
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
   }
-  .third-section{
-    visibility: hidden;
+  .third-section {
+    /* visibility: hidden; */
+    display: none;
   }
-  
 }
 
-
 @media screen and (max-width: 550px) {
+  .post {
+    width: 100%;
+  }
 
- 
+  .postBox {
+    width: 100%;
+  }
 }

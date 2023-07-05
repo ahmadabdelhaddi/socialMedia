@@ -3,8 +3,7 @@ import Post from "./Post/Post";
 function Home() {
   return (
     <>
-      <Post/>
-
+      <Post />
     </>
   );
 }

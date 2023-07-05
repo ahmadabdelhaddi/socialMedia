@@ -13,10 +13,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path=":userId" element={<Home />} />
         {/* <Route path=":commentId" element={< Comment/>} /> */}
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        {/* <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} /> */}
       </Routes>
       <Footer />
     </>

@@ -8,8 +8,6 @@ import { useParams } from "react-router-dom";
 function Post() {
   const [users, setUsers] = useState([]);
 
-  const [posts, setposts] = useState([]);
-  const [image, setimage] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [post_img, setpostimg] = useState("");
@@ -33,6 +31,7 @@ function Post() {
       console.log(post_img);
     }
   }, [post_img]);
+
   //GET URL THE IMAGE TO SAVE IT ON JSON SERVER
   // const imageURL = () => {
 
@@ -43,56 +42,38 @@ function Post() {
     GetPosts();
   }, []);
 
-  // const GetPosts = () => {
-  //   axios
-  //     .get("http://localhost:9000/Users/", {
-
-  //     }) // Replace the URL with your JSON server endpoint
-  //     .then((response) => {
-  //       setUsers(response.data);
-  //       // Do something with the retrieved data
-  //     });
-  // };
+  //GET POSTS FROM JSON SERVER
   const GetPosts = () => {
     axios
       .get(`http://localhost:9000/Users/`)
       .then((response) => {
-        const users = response.data;
-        const posts = users[0].posts; // Access the posts array from the first user (assuming only one user in the array)
-  
-        // Do something with the posts data
-        console.log(posts);
-  
+        // Update state or  retrieved data
         setUsers(response.data);
-        // Update state or perform any other necessary actions with the retrieved data
       })
       .catch((error) => {
         // Handle error response
       });
   };
-  
 
+  //SUBMIT FORM .. RESET ALL VALUES TO "" , DONT RELOAD THE PAGE
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // imageUpload()
-    // if (post_img) {
-    //   imageURL();
-    // } else {
-    //   console.log("NOT FOUND");
-    // }
-    // setposts(handleSubmit)
     setName("");
     setDescription("");
     PostNewpost();
     setpostimg(null);
     GetPosts();
   };
-  // to send data to json server
+
+  // SEND DATA TO JSON SERVER
   const PostNewpost = () => {
+    //CHECK IF IMG UPLOAD ..
     if (post_img) {
+      //FILEREADER .. object allows reading the contents of files asynchronously
       const fileReader = new FileReader();
+      // This event is triggered when the file has been successfully read by the FileReader.
       fileReader.onload = function (e) {
+        //The e.target.result property contains the result of reading the file .. result is (url)
         const url = e.target.result;
         axios
           .post("http://localhost:9000/Users", {
@@ -102,41 +83,28 @@ function Post() {
             Image: "./avatar.jpg",
             description,
             post_img: url,
-            comments: [],
             date: currentDate,
           })
           .then((data) => {});
       };
+
+      // The readAsDataURL() method :
+      //reads the contents of the file and converts it to a data URL
       fileReader.readAsDataURL(post_img);
     } else {
       axios
         .post(`http://localhost:9000/Users/`, {
-          // ...users[0], // Spread the existing user data
-          // posts: [
-          //   ...users[0].posts,
-          //   {
-          //     description,
-          //     date: currentDate,
-          //     post_img,
-          //     comments: [],
-          //   },
-          // ],
-           // Add the new post to the posts array
-
-           name ,
-           Image: "./avatar.jpg",
-           description,
-           post_img: "",
-           comments: [],
-           date: currentDate,
-
+          name,
+          Image: "./avatar.jpg",
+          description,
+          post_img: "",
+          date: currentDate,
         })
         .then((data) => {});
     }
   };
 
   // FUNCTION TO DELETE THE POSTS
-
   const handleDeletePost = (postId) => {
     axios
       .delete(`http://localhost:9000/Users/${postId}`)
@@ -152,7 +120,6 @@ function Post() {
 
   // FUNCTION TO UPDATE THE POST (DESCRIPTION && PHOTO)
 
-
   return (
     <>
       <div className="Big-container">
@@ -164,8 +131,7 @@ function Post() {
           <div className="newPost">
             <div className="postBox">
               <form onSubmit={handleSubmit}>
-               
-              <input
+                <input
                   style={{ padding: "10px" }}
                   className="formInput"
                   type="text"
@@ -182,9 +148,6 @@ function Post() {
                   onChange={handleDescriptionChange}
                   placeHolder="Enter the description"
                 />
-
-
-            
 
                 <input type="file" onChange={handleFileChange} />
 
@@ -234,12 +197,10 @@ function Post() {
                       <div className="user_info">
                         <img src={post.Image} width="50px" />
                         <h4 style={{ margin: "8px" }}>{post.name}</h4>
-                       
+
                         <h6>{post.date}</h6>
-                      
-                      
-                       
-                       <button
+
+                        <button
                           className="postDeleteButton"
                           onClick={() => handleDeletePost(post.id)}
                         >
@@ -249,8 +210,8 @@ function Post() {
                       <p>{post.description}</p>
                     </div>
                     <img src={post.post_img} width="400px" alt="" />
-                    <Comment />
-                        {/* <h6>{elm.date}</h6> */}
+                    <Comment posTId={post.id} />
+                    {/* <h6>{elm.date}</h6> */}
                   </div>
                 </>
               );
@@ -258,8 +219,8 @@ function Post() {
           </div>
         </div>
 
-        <div className="third-section" >
-          <h1 style={{color:"#f0f2f5"}}>....................</h1>
+        <div className="third-section">
+          <h1 style={{ color: "#f0f2f5" }}>................</h1>
         </div>
       </div>
     </>
